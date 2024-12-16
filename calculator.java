@@ -18,13 +18,13 @@ public static arithmeticOperations output;
     if(choice == 1) {
         output.Add(num1, num2);
     } else if (choice == 2) {
-        //substraction
+        output.Sub(num1, num2);
     } else if (choice == 3) {
-        //multiplication
+        output.Mult(num1, num2);
     } else if (choice == 4) {
-        // division
+        output.Div(num1, num2);
     } else {
-        //invalid
+        System.out.println("Invalid. Please choose a different value.");
     }
 
 // infix to post fix use stack for
