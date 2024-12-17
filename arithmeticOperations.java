@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class arithmeticOperations {    
@@ -34,7 +33,6 @@ public static arithmeticOperations output;
             double num2 = scan.nextDouble();
 
             return num1 + num2;
-            // intro();
         }
     }
 
@@ -43,7 +41,7 @@ public static arithmeticOperations output;
             System.out.println("Enter two numbers");
             double num1 = scan.nextDouble();
             double num2 = scan.nextDouble();
-
+            
             return num1 - num2;
         }
     }
