@@ -13,16 +13,16 @@ public static arithmeticOperations output = new arithmeticOperations();
 
         switch (choice){
             case 1:
-                System.out.println("Result: " + output.Add());
+                System.out.println("Result: " + output.Add(scan));
                 break;
             case 2: 
-                System.out.println("Result: " + output.Sub());
+                System.out.println("Result: " + output.Sub(scan));
                 break;
             case 3:
-                System.out.println("Result: " + output.Mult());
+                System.out.println("Result: " + output.Mult(scan));
                 break;
             case 4: 
-                System.out.println("Result: " + output.Div());
+                System.out.println("Result: " + output.Div(scan));
                 break;
             case 5: 
                 System.out.println("Ending program. Goodbye.");
@@ -35,15 +35,3 @@ public static arithmeticOperations output = new arithmeticOperations();
         scan.close();
     }
 }
-
-// infix to post fix use stack for
-        // if(choice == 1) {
-        //     output.Add();
-        // } else if (choice == 2) {
-        //     output.Sub();
-        // } else if (choice == 3) {
-        //     output.Mult();
-        // } else if (choice == 4) {
-        //     output.Div();
-        // } else {
-        //     System.out.println("Invalid. Please choose a different value.");
