@@ -12,13 +12,30 @@ public static arithmeticOperations output = new arithmeticOperations();
         choice = scan.nextInt();
 
         switch (choice){
+            case 1:
+                System.out.println("Result: " + output.Add());
+                break;
+            case 2: 
+                System.out.println("Result: " + output.Sub());
+                break;
+            case 3:
+                System.out.println("Result: " + output.Mult());
+                break;
+            case 4: 
+                System.out.println("Result: " + output.Div());
+                break;
+            case 5: 
+                System.out.println("Ending program. Goodbye.");
+                break;
+            default:
+                System.out.println("Invalid operation. Please try again.");
+                break;
         }
-    }
     } while (choice != 5);
         scan.close();
-
     }
 }
+
 // infix to post fix use stack for
         // if(choice == 1) {
         //     output.Add();
