@@ -1,4 +1,4 @@
-package src.main.java;
+//package src.main.java;
 import java.util.Scanner;
 
 public class calculator {
@@ -9,7 +9,7 @@ public static arithmeticOperations output = new arithmeticOperations();
 
     do {
         System.out.println("What operation would you like to calculate?");
-        System.out.println("1: Addition \n2: Subtraction \n3: Multiplication \n4: Division \n5: Quit");
+        System.out.println("1: Addition \n2: Subtraction \n3: Multiplication \n4: Division \n5: System of Equations Solver \n6: Quit");
         choice = scan.nextInt();
 
         switch (choice){
@@ -25,7 +25,10 @@ public static arithmeticOperations output = new arithmeticOperations();
             case 4: 
                 System.out.println("Result: " + output.Div(scan));
                 break;
-            case 5: 
+            case 5:
+                System.out.println("Result: " + output.systemOfEquations(scan));
+                break;
+            case 6: 
                 System.out.println("Ending program. Goodbye.");
                 break;
             default:
