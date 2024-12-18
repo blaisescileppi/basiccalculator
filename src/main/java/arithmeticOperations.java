@@ -43,7 +43,7 @@ public class arithmeticOperations {
     }
 
 
-    public double systemOfEquations(Scanner scan) {
+    public String systemOfEquations(Scanner scan) {
         System.out.println("Enter your three equations in the format Ax+By+Cz=D:");
         scan.nextLine(); // takes leftover endline character, if any
         String eq1 = scan.nextLine();
@@ -51,38 +51,55 @@ public class arithmeticOperations {
         String eq3 = scan.nextLine();
         double A, B, C, D, A2, B2, C2, D2, A3, B3, C3, D3;
 
-        Pattern pattern = Pattern.compile("([+-]?\\d*\\.?\\d+)x\\s*([+-]\\s*\\d*\\.?\\d+)y\\s*([+-]\\s*\\d*\\.?\\d+)z\\s*=\\s*([+-]?\\d*\\.?\\d+)");
+        Pattern pattern = Pattern.compile("([+-]?\\d*\\.?\\d*)?x\\s*([+-]\\s*\\d*\\.?\\d*)?y\\s*([+-]\\s*\\d*\\.?\\d*)?z\\s*=\\s*([+-]?\\d*\\.?\\d+)");
+        
         Matcher matcher = pattern.matcher(eq1);
         if (matcher.find()) {
-            A = Double.parseDouble(matcher.group(1));
-            B = Double.parseDouble(matcher.group(2));
-            C = Double.parseDouble(matcher.group(3));
+            A = matcher.group(1) == null || matcher.group(1).isEmpty() || matcher.group(1).equals("-") || matcher.group(1).equals("+")
+                ? matcher.group(1).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher.group(1));
+            B = matcher.group(2) == null || matcher.group(2).isEmpty() || matcher.group(2).equals("-") || matcher.group(2).equals("+")
+                ? matcher.group(2).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher.group(2).replace(" ", ""));
+            C = matcher.group(3) == null || matcher.group(3).isEmpty() || matcher.group(3).equals("-") || matcher.group(3).equals("+")
+                ? matcher.group(3).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher.group(3).replace(" ", ""));
             D = Double.parseDouble(matcher.group(4));
         } else {
-            System.out.println("Invalid input for the first equation.");
-            return 0;
+            return "Invalid input for the first equation.";
         }
+        
     
         Matcher matcher2 = pattern.matcher(eq2);
         if (matcher2.find()) {
-            A2 = Double.parseDouble(matcher2.group(1));
-            B2 = Double.parseDouble(matcher2.group(2));
-            C2 = Double.parseDouble(matcher2.group(3));
+            A2 = matcher2.group(1) == null || matcher2.group(1).isEmpty() || matcher2.group(1).equals("-") || matcher2.group(1).equals("+")
+                ? matcher2.group(1).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher2.group(1));
+            B2 = matcher2.group(2) == null || matcher2.group(2).isEmpty() || matcher2.group(2).equals("-") || matcher2.group(2).equals("+")
+                ? matcher2.group(2).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher2.group(2).replace(" ", ""));
+            C2 = matcher2.group(3) == null || matcher2.group(3).isEmpty() || matcher2.group(3).equals("-") || matcher2.group(3).equals("+")
+                ? matcher2.group(3).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher2.group(3).replace(" ", ""));
             D2 = Double.parseDouble(matcher2.group(4));
         } else {
-            System.out.println("Invalid input for the second equation.");
-            return 0;
+            return "Invalid input for the second equation.";
         }
     
         Matcher matcher3 = pattern.matcher(eq3);
         if (matcher3.find()) {
-            A3 = Double.parseDouble(matcher3.group(1));
-            B3 = Double.parseDouble(matcher3.group(2));
-            C3 = Double.parseDouble(matcher3.group(3));
+            A3 = matcher3.group(1) == null || matcher3.group(1).isEmpty() || matcher3.group(1).equals("-") || matcher3.group(1).equals("+")
+                ? matcher3.group(1).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher3.group(1));
+            B3 = matcher3.group(2) == null || matcher3.group(2).isEmpty() || matcher3.group(2).equals("-") || matcher3.group(2).equals("+")
+                ? matcher3.group(2).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher3.group(2).replace(" ", ""));
+            C3 = matcher3.group(3) == null || matcher3.group(3).isEmpty() || matcher3.group(3).equals("-") || matcher3.group(3).equals("+")
+                ? matcher3.group(3).equals("-") ? -1 : 1
+                : Double.parseDouble(matcher3.group(3).replace(" ", ""));
             D3 = Double.parseDouble(matcher3.group(4));
-        } else {
-            System.out.println("Invalid input for the third equation.");
-            return 0;
+        }  else {
+            return "Invalid input for the third equation.";
         }
     
 
@@ -95,15 +112,8 @@ public class arithmeticOperations {
         // Solve the system
         DecompositionSolver solver = new LUDecomposition(coefficientMatrix).getSolver();
         RealVector solution = solver.solve(constantsVector);
-        
-        // Print solution
-        System.out.println("x = " + solution.getEntry(0));
-        System.out.println("y = " + solution.getEntry(1));
-        System.out.println("z = " + solution.getEntry(2));
-        
 
-
-        return 0;
+        return "x = " + solution.getEntry(0) + "y = " + solution.getEntry(1) + "z = " + solution.getEntry(2);
      }
 
 
