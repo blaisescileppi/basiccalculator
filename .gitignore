@@ -1,0 +1,16 @@
+# Ignore Maven's target directory (generated files)
+/target/
+
+# IDE-specific files (example for VSCode and IntelliJ IDEA)
+.vscode/
+.idea/
+
+# OS-specific files (macOS, Windows)
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Log files
+*.log
+
+# Java files compiled by Maven
+*.class
