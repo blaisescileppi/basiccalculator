@@ -1,8 +1,8 @@
 package com.calculatorApp;
 //package src.main.java;
 import java.util.Scanner;
-public class Calculator {
-public static ArithmeticOperations output = new ArithmeticOperations();
+public class calculator {
+public static arithmeticOperations output = new arithmeticOperations();
     public static void main(String[] args){
     Scanner scan = new Scanner(System.in);
     int choice;

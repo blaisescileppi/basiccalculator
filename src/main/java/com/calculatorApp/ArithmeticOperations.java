@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.regex.*;
 import org.apache.commons.math3.linear.*;
 
-public class ArithmeticOperations {
+public class arithmeticOperations {
 
     public double Add(Scanner scan) {
         System.out.println("Enter two numbers");
