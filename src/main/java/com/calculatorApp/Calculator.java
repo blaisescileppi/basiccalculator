@@ -35,7 +35,7 @@ public static arithmeticOperations output = new arithmeticOperations();
                 System.out.println("Invalid operation. Please try again.");
                 break;
         }
-    } while (choice != 5);
+    } while (choice != 6);
         scan.close();
     }
 }
